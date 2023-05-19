@@ -1,0 +1,58 @@
+div#outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    --maximum-length: calc(100vw + 100vh);
+    --border-offset: 1px;
+}
+
+div#anchor {
+    pointer-events: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div#canvas {
+    pointer-events: none;
+    margin: 0 auto;
+    width: 0;
+}
+
+div.circle {
+    pointer-events: none;
+    position: absolute;
+    width: calc(2 * var(--radius) - var(--border-offset));
+    height: calc(2 * var(--radius) - var(--border-offset));
+    margin-top: calc(var(--y) - var(--radius));
+    margin-left: calc(var(--x) - var(--radius));
+    border: var(--border-offset) solid black; /* TODO orientation */
+    border-radius: 50%;
+}
+
+div.line {
+    pointer-events: none;
+    position: absolute;
+    width: var(--maximum-length);
+    margin-left: calc(var(--maximum-length) / -2);
+    height: 0px;
+    border: calc(var(--border-offset) / 2) solid black;
+    transform-origin: 50% 50%;
+    transform: rotate(var(--angle)) translateY(calc(var(--distance)));
+}
+
+div.point {
+    pointer-events: none;
+    position: absolute;
+    --size: 2px;
+    width: calc(2 * var(--size));
+    height: calc(2 * var(--size));
+    margin-top: calc(var(--y) - var(--size) + var(--border-offset)/2);
+    margin-left: calc(var(--x) - var(--size) + var(--border-offset)/2);
+    background-color: black;
+    z-index: 10;
+    border-radius: 50%;
+}

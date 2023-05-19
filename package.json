@@ -1,0 +1,14 @@
+{
+  "name": "LieGeometry",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^20.2.1",
+    "mathjs": "^11.8.0",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "build": "yarn tsc"
+  }
+}
